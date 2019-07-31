@@ -1,4 +1,6 @@
+// Template engine generates html templates
 const TemplateEngine = {
+  // Create template for a row campaign
   renderCampaignRow: (campaign, isSelected) => {
     return `<tr data-campaign-id="${campaign._id}">
         <td class="align-center">
@@ -24,12 +26,14 @@ const TemplateEngine = {
     </tr>`;
   },
 
+  // Create template for one pagination button
   renderPaginationButton: (pageNumber, active) => {
     return `<button class="btn btn-outline-blue ${
       active ? "active" : ""
     }" data-page-number=${pageNumber} onclick=Store.changeCurrentPage(${pageNumber})>${pageNumber}</button>`;
   },
 
+  // Create template for Edit campaign modal
   renderEditCampaignModal: campaign => {
     return `<div class="modal edit-campaign-modal">
       <div class="form-group">

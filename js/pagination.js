@@ -1,4 +1,6 @@
+// This module takes care of the rendering & updates of pagination
 (function() {
+  // Renders the pagination by fetching the page details from the store
   function render() {
     const { total, current } = Store.page;
 
@@ -15,6 +17,7 @@
     $paginationWrapper.innerHTML = paginationButtons.join("");
   }
 
+  // Handler to change the active page.
   function changeActivePage(payload) {
     const { pageNumber } = payload;
     const $currentActivePageButtonEl = document.querySelector(
@@ -30,8 +33,11 @@
     $newActivePageButtonEl.classList.add("active");
   }
 
+  //Event subscriptions
   EventMod.on("deleteCampaign", render);
   EventMod.on("search", render);
   EventMod.on("changePage", changeActivePage);
+
+  // Initialize render
   render();
 })();

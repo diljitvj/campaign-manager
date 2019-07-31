@@ -1,4 +1,5 @@
 const Utils = {
+  // Formats the date time from Javascript Date object
   formatTime: date => {
     const dateString = date.toDateString();
     const timeString = date.toLocaleTimeString();
@@ -11,6 +12,7 @@ const Utils = {
     return `${dateString} ${hh}:${mm} ${amOrPm}`;
   },
 
+  // Creates a debounced function
   debounce: (func, interval) => {
     let timeout;
     return function() {

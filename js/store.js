@@ -1,4 +1,6 @@
+// This is a Singleton of the state of the application.
 const Store = new (class {
+  // Construtor initializes the store with its values
   constructor() {
     this.campaigns = _campaigns;
     this.page = {
@@ -10,6 +12,7 @@ const Store = new (class {
     this.searchText = "";
   }
 
+  // The search text on the store is updated and emits an event
   updateSearchText(searchText) {
     this.searchText = searchText;
     this.resetPagination();
@@ -17,10 +20,12 @@ const Store = new (class {
     EventMod.emit("search");
   }
 
+  // Fetch a campaign by its _id
   getCampaignById(id) {
     return this.campaigns.find(c => c._id === id);
   }
 
+  // Fetch all the campaign results
   getAllCampaignResults() {
     return this.searchText
       ? this.campaigns.filter(
@@ -30,6 +35,7 @@ const Store = new (class {
       : this.campaigns;
   }
 
+  // Get the campaings in the current page
   getCurrentCampaignResultPage() {
     const result = this.getAllCampaignResults();
     const { current, resultPerPage } = this.page;
@@ -40,6 +46,7 @@ const Store = new (class {
     );
   }
 
+  // Change the current page and emit an event
   changeCurrentPage(pageNumber) {
     const totalCount = this.page.total;
     const prev = this.page.current;
@@ -50,6 +57,7 @@ const Store = new (class {
     }
   }
 
+  // Update the pagination: Called while user starts searching and also during the delete operation
   updatePagination() {
     const results = this.getAllCampaignResults();
     const { current, resultPerPage } = this.page;
@@ -62,11 +70,13 @@ const Store = new (class {
     };
   }
 
+  // Reset the pagination when the user searches
   resetPagination() {
     this.updatePagination();
     this.page.current = 1;
   }
 
+  // Toggle the selected campaigns and emit an event
   toggleSelection(campaignId) {
     const index = this.selectedCampaignIds.findIndex(_id => _id === campaignId);
 
@@ -76,6 +86,7 @@ const Store = new (class {
     EventMod.emit("toggleSelection");
   }
 
+  // Update the campaign details and emit an event with the payload
   updateCampaign(id, name) {
     const index = this.campaigns.findIndex(c => c._id === id);
 
@@ -87,6 +98,7 @@ const Store = new (class {
     }
   }
 
+  // Bulk delete of selected campaigns
   deleteSelected() {
     this.selectedCampaignIds.forEach(id => {
       const index = this.campaigns.findIndex(c => c._id === id);
@@ -98,6 +110,7 @@ const Store = new (class {
     EventMod.emit("deleteCampaign");
   }
 
+  // Delete a campaign by its _id
   deleteCampaign(campaignId) {
     const index = this.campaigns.findIndex(c => c._id === campaignId);
 
