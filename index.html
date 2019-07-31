@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Campaign Summary</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oxygen&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="campaign-wrapper">
+      <div class="search-bar">
+        <input placeholder="Search Campaign by name" />
+      </div>
+      <div class="task-bar">
+        <button
+          class="btn btn-red"
+          id="delete-selected"
+          disabled
+          onclick="Store.deleteSelected()"
+        >
+          Delete
+        </button>
+      </div>
+      <div class="results">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Campaign Name</th>
+              <th>Type</th>
+              <th>Last Saved</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pagination align-center"></div>
+    </div>
+    <div class="modal-wrapper hide"></div>
+    <script src="js/template-engine.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/event.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/campaign.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="js/taskbar.js"></script>
+  </body>
+</html>

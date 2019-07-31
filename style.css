@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oxygen", sans-serif;
+}
+
+/* Utils */
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 12px;
+  margin-right: 3px;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-red {
+  background: #e74c3c;
+  color: white;
+}
+.btn-blue {
+  background: #3498db;
+  color: white;
+}
+
+.btn-outline-blue {
+  border: 1px solid #3498db;
+  color: #3498db;
+  min-width: 40px;
+}
+.btn-outline-blue.active {
+  border: 1px solid #3498db;
+  background-color: #3498db;
+  color: white;
+}
+
+.btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Search bar */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.task-bar {
+  margin-bottom: 10px;
+}
+
+/* Checkbox */
+.checkbox {
+  width: 15px;
+  height: 15px;
+  box-shadow: none;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+table tr > td.break-word {
+  word-break: break-word;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+th a {
+  text-decoration: none;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border: 1px solid #dddddd;
+}
+
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dddddd;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Modal */
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+.modal-wrapper.hide {
+  display: none;
+}
+
+.modal {
+  width: 400px;
+  margin: auto;
+  margin-top: 200px;
+  border: 1px solid black;
+  background: white;
+  padding: 20px;
+}
+
+.modal .form-group {
+  padding: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid gray;
+  box-shadow: none;
+}
+
+.form-group input:focus {
+  outline: none;
+  border: 1px solid #3498db;
+}
+
+.form-group input:disabled {
+  cursor: not-allowed;
+  background: lightgray;
+}
